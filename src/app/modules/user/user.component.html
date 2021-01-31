@@ -1,7 +1,12 @@
 <div class="user">
-    <div>{{ user?.email }}</div>
-
-    <div class="list-item-book" *ngFor="let book of purchasesBooks">
-        <div class="item-book">{{ book.book }}</div>
+    <div class="purchasesBooks">
+        <h2>Purchased books</h2>
+        <div >
+            <mat-list class="list-item-book" *ngFor="let book of purchasesBooks">
+                <mat-list-item>{{ book.book }} {{ book.price | currency:'ILS':'symbol' }} </mat-list-item>
+                <mat-divider></mat-divider>
+              </mat-list>
+        </div>
     </div>
+ 
 </div>

@@ -1,4 +1,3 @@
-import { BookApiService } from './../resources/book-api.service';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -19,18 +18,12 @@ export class BookListComponent implements OnInit {
   vm$: Observable<BookSelector.BooksViewModel>;
 
   constructor(
-    private bookService: BookApiService,
     private store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
     this.vm$ =  this.store.pipe(select(BookSelector.selectBooksViewModel));
     this.store.dispatch(fromBookAction.loadBooks())
-  }
-
-  loadBooks() {
-    this.store.dispatch(fromBookAction.loadBooks());
-    // this.currentUrl = url;
   }
 
   deleteProduct(id: string) {

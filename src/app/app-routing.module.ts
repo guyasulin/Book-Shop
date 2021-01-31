@@ -26,10 +26,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'cart',
-        loadChildren: () => import('./modules/cart/cart.module').then((m) => m.CartModule),
-      },
-      {
         path: 'user',
         loadChildren: () => import('./modules/user/user.module').then((m) => m.UserModule),
       },

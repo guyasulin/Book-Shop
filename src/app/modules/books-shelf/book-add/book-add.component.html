@@ -1,33 +1,41 @@
 <div class="book-add">
-	<div class="col-8 mt-4">
-		<h4>Add Product</h4>
-		<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-			<div class="form-group">
-				<label for="productName">book Name</label>
-				<input type="text" ngModel required name="book" class="form-control" id="productName" placeholder="Name">
-			</div>
-			<div class="mb-3 form-group">
-				<label for="productDescription">author</label>
-				<input type="text" name="author" required ngModel class="form-control" id="productQuantity" placeholder="Example: 100">
-			</div>
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="productPrice">Price</label>
-					<input type="number" name="price" ngModel required class="form-control" id="productPrice" placeholder="Example: 000.00">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="productQuantity">publisher</label>
-					<input type="text" name="publisher" required ngModel class="form-control" id="productQuantity" placeholder="Example: 100">
-				</div>
-			</div>
-			<!-- <div class="form-group">
-				<label for="productImageUrl">Image Url</label>
-				<input type="text" name="imageUrl" ngModel required class="form-control" id="productImageUrl"
-					   placeholder="Example: https://source.unsplash.com/1600x900/?product">
-			</div> -->
-			<button class="btn btn-primary m-1"  [routerLink]="['/shopping/book-list']"><i class="fas fa-arrow-left"></i> Back To List</button>
-			<button class="btn btn-success m-1" type="submit" [disabled]="f.invalid">Add Product <i class="fas fa-plus"></i></button>
-		</form>
-
-	</div>
+  <div class="container">
+    <h3>Add Product</h3>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form">
+      <mat-form-field appearance="outline">
+        <mat-label >book Name</mat-label>
+        <input matInput type="text" ngModel required name="book"  placeholder="Name">
+	  </mat-form-field>
+	  
+      <mat-form-field appearance="outline">
+        <mat-label >author</mat-label>
+        <input matInput type="text" name="author" required ngModel>
+	  </mat-form-field>
+	  
+      <mat-form-field appearance="outline">
+        <mat-label >Price</mat-label>
+        <input matInput type="number" name="price" ngModel required>
+	  </mat-form-field>
+	  
+      <mat-form-field appearance="outline">
+        <mat-label >publisher</mat-label>
+        <input matInput type="text" name="publisher" required ngModel>
+	  </mat-form-field>
+	  
+	  <!-- <mat-form-field appearance="outline">
+        <mat-label >Cover Book</mat-label>
+        <input matInput type="text" name="cover" required ngModel>
+    </mat-form-field> -->
+    
+	  <!-- <button type="button" mat-raised-button (click)="cover.click()">Choose File</button>
+    <input hidden (change)="onFileSelected()"  name="cover"  ngModel #cover type="file" id="file"> -->
+    
+      <div class="btn-group">
+        <button mat-raised-button class="btn btn-back" [routerLink]="['/shopping/book-list']"> Back
+          To List
+        </button>
+        <button mat-raised-button type="submit" class="btn btn-add" [disabled]="f.invalid">Add Book </button>
+      </div>
+    </form>
+  </div>
 </div>

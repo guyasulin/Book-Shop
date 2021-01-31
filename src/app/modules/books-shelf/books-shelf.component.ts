@@ -5,10 +5,8 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import * as fromBookAction from './state/book.actions';
-import { getAllBook, getbooks } from './state/book.selectors';
-import * as BookSelector from './state/book.selectors';
-import  * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
-import * as fromAuthAction from '../../store/actions/auth.actions';
+import { getbooks } from './state/book.selectors';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-books-shelf',
@@ -16,37 +14,37 @@ import * as fromAuthAction from '../../store/actions/auth.actions';
   styleUrls: ['./books-shelf.component.scss']
 })
 export class BooksShelfComponent implements OnInit {
-
-  public vm$: Observable<BookSelector.BooksViewModel>;
-  books$: Observable<Book[]>
+ public books$: Observable<Book[]>
 
   constructor(
     private store: Store<AppState>,
-    private bookService: BookApiService
+    private bookService: BookApiService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
-    // this.vm$ =  this.store.pipe(select(BookSelector.selectBooksViewModel))
       this.store.dispatch(fromBookAction.loadBooks())
-      this.books$ = this.store.pipe(select(getbooks))
-
+      this.getBooks()
   }
 
   getBooks() {
-    // this.store.dispatch(fromBookAction.loadBooksAdmin());
+      this.books$ = this.store.pipe(select(getbooks))
   }
 
   buyBook(bookId) {
-    console.log(bookId);
     const bookIdObservable = {
       next: (bookId) => {
-          console.log('success');
+        setTimeout(() => {
+          this.alertService.info('Book purchased');
+        }, 1000)
       },
       error: (err) => {
-        console.log(err);
+        setTimeout(() => {
+          this.alertService.info('This book was purchased');
+        }, 2000)
       },
     };
     this.bookService.purchasesBookById(bookId).subscribe(bookIdObservable)
   }
-
+  
 }

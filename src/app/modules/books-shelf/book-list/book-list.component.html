@@ -1,45 +1,46 @@
 <div class="book-list" *ngIf="vm$ | async as vm">
-	<h3 class="mt-4 mb-4">book List</h3>
-
-	<table class="table table-hover text-center">
-
-		<thead>
-			<tr>
-				<th scope="col">Book Name</th>
-				<th scope="col">Price</th>
-				<th scope="col">quantity</th>
-				<th scope="col">
-					<div>
-						<button type="button" title="Add new product" class="btn btn-success" [routerLink]="['/shopping/book-add']">Add New Product
-							<i class="fas fa-plus"></i></button>
-					</div>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-
-			<tr *ngFor="let book of vm.books">
-				<th scope="row">{{book.book}}</th>
-				<td>{{book.book}}</td>
-				<td>{{book.price}}</td>
-				<td>{{book.author}}</td>
-				<td>{{book.publisher}}</td>
-				<td>
-					<div class="btn-group" role="group">
-						<button type="button" class="btn btn-info" title="View book"  [routerLink]="['/shopping/book-item', book.id]">
-							View book </button>
-						<button type="button" class="btn btn-warning" title="Edit book" [routerLink]="['/shopping/book-edit', book.id]">Edit</button>
-						<button type="button" class="btn btn-danger" title="Delete book" (click)="deleteProduct(book.id)" [routerLink]="['/shopping/book-list']">Delete</button>
-					</div>
-				</td>
-			</tr>
-
-		</tbody>
-	</table>
-	<div class="row">
-		<div class=" mb-1 mt-5 col-5 offset-7">
-			<!-- <app-pagination-buttons-widget [pagination]="vm.pagination" (selecedUrl)="onPaginationChange($event);">
-			</app-pagination-buttons-widget> -->
-		</div>
+	<div class="container">
+  <h2 class="mt-4 mb-4">Book List</h2>
+  <div>
+    <button type="button" title="Add new product" mat-raised-button class="btn-add"
+	  [routerLink]="['/shopping/book-add']">
+	  <span>
+		Add New Product
+	  </span> 
+      <mat-icon class="icon icon-add">add</mat-icon>
+    </button>
+  </div>
+  <table class="table table-hover">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">publisher</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+    <tr *ngFor="let book of vm.books">
+      <td><img class="cover" src="{{ book.cover }}"></td>
+      <td>{{book.book}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.publisher}}</td>
+      <td>{{book.price}}</td>
+      <td>
+        <div class="btn-group" role="group">
+          <button type="button" mat-raised-button class="btn btn-edit" title="Edit book"
+			[routerLink]="['/shopping/book-edit', book.id]">
+			<mat-icon class="icon icon-delete">edit</mat-icon>
+				<span>Edit</span>
+			</button>
+          <button type="button" mat-raised-button color="warn" class="btn btn-danger" title="Delete book"
+			(click)="deleteProduct(book.id)" [routerLink]="['/shopping/book-list']">
+			<mat-icon class="icon icon-delete">delete</mat-icon>
+			<span>Delete</span>
+			</button>
+        </div>
+      </td>
+    </tr>
+  </table>
 	</div>
+
 </div>

@@ -1,0 +1,19 @@
+.book-add {
+    .form {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column;
+        text-align: center;
+
+        .mat-form-field  {
+            width: 40%;
+        }
+
+        .btn-group {
+            .btn {
+                margin-right: 5px;
+            }
+        }
+    }
+}

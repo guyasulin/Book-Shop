@@ -13,10 +13,6 @@ export class SpinnerEffects {
         ofType(
           fromAuthActions.login,
           fromBookActions.loadBooks,
-          // fromBookActions.loadAdminBooks,
-          fromBookActions.loadBooks,
-          // fromBookActions.loadAdminBooks,
-          fromBookActions.addBooks
         ),
         tap(() => this.spinner.show())
       ),
@@ -31,8 +27,6 @@ export class SpinnerEffects {
           fromAuthActions.loginFailure,
           fromBookActions.loadBooksFailure,
           fromBookActions.loadBooksSuccess,
-          fromBookActions.loadBooksFailure,
-          fromBookActions.loadBookSuccess,
           fromBookActions.addBookSuccess,
           fromBookActions.addBookFailure
         ),

@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
 		const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post('http://localhost:4000/api/users/signin',{email,password}, {headers}).pipe();
+    return this.http.post('http://localhost:4000/api/users/signin',{email,password}, {headers})
   }
 
   getUser(): Observable<any> {
@@ -26,14 +25,12 @@ export class AuthService {
  
   register(email: string, password: string): Observable<any> {
 		const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post('http://localhost:4000/api/users/signup',{email,password}, {headers}).pipe(
-    );
+    return this.http.post('http://localhost:4000/api/users/signup',{email,password}, {headers})
   }
 
   signout(): Observable<any> {
 		const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post('http://localhost:4000/api/users/signout', {headers}).pipe(
-    );
+    return this.http.post('http://localhost:4000/api/users/signout', {headers})
   }
 
 }

@@ -1,0 +1,51 @@
+.book-list {
+  .container {
+    padding: 15px ;
+
+    .btn-add {
+      background: #5fa062c7;
+      margin-bottom: 18px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+
+      tr {
+        counter-increment: row-num;
+      }
+
+      tr td:first-child::before {
+        content: counter(row-num) ". ";
+      }
+
+      td,
+      th {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+
+      }
+
+      .cover {
+        width: 30px;
+        vertical-align: middle;
+      }
+
+      .btn-group {
+        .btn {
+          margin-right: 5px;
+        }
+
+
+        .btn-edit {
+          background: cadetblue;
+        }
+      }
+
+      .icon {
+        vertical-align: middle;
+      }
+    }
+  }
+}

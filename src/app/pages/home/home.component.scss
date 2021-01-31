@@ -1,0 +1,13 @@
+.home {
+    .welcome-home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+        .title {
+            border: 1px solid;
+            padding: 30px;
+        }
+    }
+}

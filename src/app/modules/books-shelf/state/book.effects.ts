@@ -16,7 +16,6 @@ export class BookEffects {
         this.bookService.getAllBooks().pipe(
           map((books) =>
           fromBookActions.loadBooksSuccess({ books:books }),
-          tap(data => JSON.stringify( data))
           ),
           catchError((err) => of(fromBookActions.loadBooksFailure(err)))
         )
@@ -24,17 +23,6 @@ export class BookEffects {
     )
   );
 
-  loadBook$ = createEffect(() => {
-    return this.actions$.pipe(
-        ofType(fromBookActions.loadBook),
-         mergeMap((action) =>
-          this.bookService.getBook(action.id).pipe(
-            map((book) => fromBookActions.loadBookSuccess({ book : book })),
-            catchError(error => of(fromBookActions.loadBookFaliur({ error }))))
-          ),
-    );
-  });
-  
   createBook$ = createEffect(() =>
   this.actions$.pipe(
     ofType(fromBookActions.addBook),

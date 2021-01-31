@@ -1,17 +1,18 @@
-<div class="auth-links" *ngIf="vm$ | async as vm">
-    <!--  -->
-	<div *ngIf="vm.isAdmin" class="user-link auth-admin-link" routerLink='/admin/book-list'>  
-		<mat-icon class="icon">admin_panel_settings</mat-icon>
-		Admin
-	</div>
-        <!-- " -->
-	<div *ngIf="!vm.isAdmin && vm.isLoggedin" class="user-link" routerLink='/shopping/book-shelf'>
-		<mat-icon class="icon">person_pin</mat-icon> User </div>
-	<div *ngIf="!vm.isLoggedin" class="user-link login"  routerLink='/auth/signin' routerLinkActive="active"> 
-		<mat-icon class="icon">login</mat-icon>Login </div>
-	<div *ngIf="!vm.isLoggedin" routerLink='/auth/signup' class="user-link user-link-signup" routerLinkActive="active"> Register </div>
-	<div *ngIf="vm.isLoggedin" class="user-link auth-logout-link" (click)="logout()">
-		<mat-icon class="icon">exit_to_app</mat-icon>
-		Logout
-	</div>
+<div class="auth-links">
+  <div *ngIf="user.admin" class="user-link auth-admin-link" routerLink='/admin/book-list'>
+    <mat-icon class="icon">admin_panel_settings</mat-icon> Admin
+  </div>
+
+  <div *ngIf="!user.admin && user.id" class="user-link" routerLink='/shopping/book-shelf'>
+    <mat-icon class="icon">person_pin</mat-icon> {{ user.email }}
+  </div>
+  <div *ngIf="!user.id" class="user-link login" routerLink='/auth/signin' routerLinkActive="active">
+    <mat-icon class="icon">login</mat-icon>Login
+  </div>
+  <div *ngIf="!user.id" routerLink='/auth/signup' class="user-link user-link-signup" routerLinkActive="active"> Register
+  </div>
+  <div *ngIf="user.id" class="user-link auth-logout-link" (click)="logout()">
+    <mat-icon class="icon">exit_to_app</mat-icon>
+    Logout
+  </div>
 </div>

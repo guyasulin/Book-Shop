@@ -1,4 +1,4 @@
-<div class="header" *ngIf="vm$ | async as vm">
+<div class="header" >
     <mat-toolbar>
       <span class="title" [routerLink]="['/']">
         Book Shop 
@@ -6,24 +6,21 @@
       <div class="nav-item">
         <button mat-button class="nav-link" [routerLink]="['/shopping/book-shelf']" >shopping book</button>
       </div>
-      <div *ngIf="vm.isAdmin">
+      <div *ngIf="user.admin">
         <button mat-icon-button [matMenuTriggerFor]="menu" class="dropdown">
-          {{ vm.isAdmin}}
+          {{ user.email}}
           <mat-icon>arrow_drop_down </mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>
-            <span class="dropdown-item" routerLink="/shopping/book-list">Products</span>
-          </button>
-          <button mat-menu-item>
-            <span class="dropdown-item" routerLink="['/category/list']">Categories</span>
+            <span class="dropdown-item" routerLink="/shopping/book-list">My books</span>
           </button>
         </mat-menu>
       </div>
       <span class="spacer"></span>
-      <div class="navbar-nav" *ngIf="vm.isLoggedin">
-        <button mat-button class="nav-item" >
-          <div routerLink="user/user-details">User</div>
+      <div class="navbar-nav" *ngIf="user.id">
+        <button mat-raised-button class="btn-user" >
+          <div routerLink="user/user-details">Purchases</div>
         </button>
       </div>
     </mat-toolbar>

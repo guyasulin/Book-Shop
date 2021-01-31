@@ -35,21 +35,6 @@ export const reducer = createReducer(
       }
     }
   ),
-
-  on(bookAction.loadBookSuccess,
-    (state, action) => adapter.addOne(action.book, state)
-  ),
-  on(bookAction.loadBookFaliur,
-    (state, action) => {
-      return {
-        ...state, 
-        error: action.error
-      }
-    }
-  ),
-  // on(bookAction.upsertBook,  
-  //   (state, action) => adapter.upsertOne(action.book, state)
-  // ),
   on(bookAction.addBookSuccess,
     (state, action) => adapter.addOne(action.book, state)
   ),
@@ -59,18 +44,8 @@ export const reducer = createReducer(
   on(bookAction.upsertBookSuccess,
     (state, action) => adapter.upsertOne(action.book, state)
   ),
-  on(bookAction.updateBooks,
-    (state, action) => adapter.updateMany(action.books, state)
-  ),
   on(bookAction.deleteBook,
     (state, action) => adapter.removeOne(action.bookId, state)
-  ),
-  
-  // on(bookAction.deleteBooks,
-  //   (state, action) => adapter.removeMany(action.ids, state)
-  // ),
-  on(bookAction.clearBooks,
-    state => adapter.removeAll(state)
   ),
 );
 

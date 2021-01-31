@@ -1,4 +1,3 @@
-import { CartModule } from './../cart/cart.module';
 import { FormsModule } from '@angular/forms';
 import { BookEffects } from './state/book.effects';
 import { NgModule } from '@angular/core';
@@ -8,9 +7,7 @@ import { BooksShelfRoutingModule } from './books-shelf-routing.module';
 import { BooksShelfComponent } from './books-shelf.component';
 import { BookAddComponent } from './book-add/book-add.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
-import { BookItemComponent } from './book-item/book-item.component';
 import { BookListComponent } from './book-list/book-list.component';
-import { BookViewComponent } from './book-view/book-view.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import * as fromBook from './state/book.reducer'
@@ -24,9 +21,7 @@ import { UserModule } from 'src/app/modules/user/user.module';
 		BooksShelfComponent,
 		BookAddComponent,
 		BookEditComponent,
-		BookItemComponent,
 		BookListComponent,
-		BookViewComponent
 	],
   imports: [ 
     CommonModule,
@@ -35,7 +30,6 @@ import { UserModule } from 'src/app/modules/user/user.module';
 	HttpClientModule,
 	FormsModule,
 	SharedModule,
-	CartModule,
 	UserModule,
     StoreModule.forFeature(fromBook.bookFeatureKey, fromBook.reducer),
     EffectsModule.forFeature([BookEffects]),

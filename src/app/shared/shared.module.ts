@@ -1,4 +1,3 @@
-import { CartModule } from './../modules/cart/cart.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 /** Components */
@@ -23,7 +22,6 @@ import { UserModule } from '../modules/user/user.module';
     AngularMaterialModule,
     AuthModule,
     RouterModule,
-    CartModule,
     UserModule
   ],
   exports: [

@@ -15,22 +15,12 @@ export const getAllBook = createSelector(
     selectAll
 );
 
-export const selectAllEntities = createSelector(
-    selectBookState,
-    BookReducer.selectEntities
-);
-
-export const selectAllProduct = createSelector(
-    selectBookState,
-    BookReducer.selectAll
-);
-
 export interface BooksViewModel {
     books: BookModel.Book[];
 }
 
 export const selectBooksViewModel = createSelector(
-    selectAllProduct,
+    getAllBook,
     (books: BookModel.Book[]): BooksViewModel => {
         return {
             books: books,
@@ -38,16 +28,3 @@ export const selectBooksViewModel = createSelector(
     }
 )
 
-export const entityExists = createSelector(
-    selectAllEntities,
-    (entities, props):boolean => {
-        return entities[props.id] == undefined ? false : true;
-    }
-);
-
-export const selectEntityById = createSelector(
-    selectAllEntities,
-    (entities, props) => {
-        return entities[props.id] 
-    }
-);

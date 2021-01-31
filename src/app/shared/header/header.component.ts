@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { User } from 'src/app/modules/auth/resources/auth';
 import { AppState } from 'src/app/store';
-import * as fromHeaderSelectors from 'src/app/store/selectors/header.selectors';
+import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: [ './header.component.scss' ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+	public user: User;
+	public sub: Subscription;
 
-  public vm$: Observable<fromHeaderSelectors.HeaderViewModel>;
-  public user: User;
+	constructor(private store: Store<AppState>) {}
 
-  constructor(private store: Store<AppState>) { }
+	ngOnInit(): void {
+		this.sub = this.store.pipe(select(fromAuthSelectors.selectUserData)).subscribe((res) => {
+			this.user = res;
+		});
+	}
 
-  ngOnInit(): void {
-    this.vm$ = this.store.pipe(select(fromHeaderSelectors.selectHeaderViewModel));
-  }
-
+	ngOnDestroy() {
+		this.sub.unsubscribe();
+	}
 }

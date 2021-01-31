@@ -1,36 +1,36 @@
 <div class="book-edit">
 	<div class="col-8 mt-4">
 		<h4>Edit Product</h4>
-		<form #f="ngForm" (ngSubmit)="onSubmit()">
-			<div class="form-group">
-				<label for="productName"> Name</label>
-				<input type="text" class="form-control" name="book" required [(ngModel)]="model.book" id="productName" placeholder="book">
-			</div>
-			<div class="mb-3 form-group">
-				<label for="productDescription">author</label>
-				<input type="text" class="form-control" name="author" required [(ngModel)]="model.author" id="productName" placeholder="book">
+		<form #f="ngForm" (ngSubmit)="onSubmit()" class="form">
 
+			<mat-form-field appearance="outline">
+				<mat-label >book Name</mat-label>
+				<input matInput type="text" [(ngModel)]="model.book" required name="book"  placeholder="Name">
+			  </mat-form-field>
+			  
+			  <mat-form-field appearance="outline">
+				<mat-label >author</mat-label>
+				<input matInput type="text" name="author" required  [(ngModel)]="model.author">
+			  </mat-form-field>
+			  
+			  <mat-form-field appearance="outline">
+				<mat-label >Price</mat-label>
+				<input matInput type="number" name="price" [(ngModel)]="model.price" required>
+			  </mat-form-field>
+			  
+			  <mat-form-field appearance="outline">
+				<mat-label >publisher</mat-label>
+				<input matInput type="text" name="publisher" required [(ngModel)]="model.publisher">
+			  </mat-form-field>
+
+			  <input name="cover" [(ngModel)]="model.cover" type="file">
+			  <img src="{{model.cover}}">
+
+			<div class="btn-group">
+				<button mat-raised-button class="btn btn-back" [routerLink]="['/shopping/book-list']" type="submit"> Back To
+					List</button>
+				<button mat-raised-button type="submit" class="btn btn-edit" [disabled]="f.invalid">Edit Book </button>
 			</div>
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="productPrice">Price</label>
-					<input type="number" class="form-control" name="price" required [(ngModel)]="model.price" id="productPrice"
-						   placeholder="Example: 000.00">
-				</div>
-				<div class="form-group col-md-6">
-					<label for="productQuantity">publisher</label>
-					<input type="text" class="form-control" name="publisher" required [(ngModel)]="model.publisher" id="productQuantity"
-						   placeholder="Example: 100">
-				</div>
-			</div>
-			<!-- <div class="form-group">
-				<label for="productImageUrl">Image Url</label>
-				<input type="text" class="form-control" id="productImageUrl" required name="cover" [(ngModel)]="model.cover"
-					   placeholder="Example: https://source.unsplash.com/1600x900/?product">
-			</div> -->
-			<button class="btn btn-primary m-1" [routerLink]="['/shopping/book-list']" type="submit"><i class="fas fa-arrow-left"></i> Back To
-				List</button>
-			<button class="btn btn-warning m-1" type="submit" [disabled]="f.invalid">Edit Book <i class="fas fa-edit"></i></button>
 		</form>
 
 	</div>

@@ -4,6 +4,7 @@ import { AppState } from 'src/app/store';
 import { User } from '../resources/auth';
 import * as fromAuthActions from 'src/app/store/actions/auth.actions';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
@@ -12,11 +13,10 @@ import { NgForm } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
 
-  user: User;
+  public user: User;
+  public sub: Subscription;
 
-  constructor(
-    private store: Store<AppState>
-  ) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }

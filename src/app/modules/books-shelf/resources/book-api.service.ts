@@ -1,18 +1,13 @@
 import { Book } from './book';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookApiService {
-  authToken: any;
-
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor(private http: HttpClient) { }
 
   getPurchasesBooks(): Observable<Book[]> {
     return this.http.get<Book[]>('http://localhost:4000/api/books/purchase')
@@ -41,16 +36,5 @@ export class BookApiService {
 
   deleteBook(bookId: any) {
     return this.http.delete(`http://localhost:4000/api/books/${bookId}`, { responseType: 'text' });
-  }
-
-  private handleError(err) {
-    let errorMessage: string;
-    if (err.error instanceof ErrorEvent) {
-      errorMessage = `An error occurred: ${err.error.message}`;
-    } else {
-      errorMessage = `Backend returned code ${err.status}: ${err.body.error}`;
-    }
-    console.error(err);
-    return throwError(errorMessage);
   }
 }

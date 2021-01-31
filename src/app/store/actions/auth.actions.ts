@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { User } from 'src/app/modules/auth/resources/auth';
 
+/** Login */
 export const login = createAction(
   '[Auth] Load Auths',
   props<{ email: string; password: string }>()
@@ -15,7 +16,7 @@ export const loginFailure = createAction(
   '[Auth] Load Auths Failure',
   props<{ error: any }>()
 );
-
+/** Register */
 export const register = createAction(
   '[Auth] Register Auths',
   props<{ email: string; password: string }>()
@@ -30,26 +31,21 @@ export const registerFailure = createAction(
   '[Auth] Register Auths Failure',
   props<{ error: any }>()
 );
-
+/** Logout */
 export const logout = createAction(
   '[Auth Links Component] Logout User'
 );
 
 export const logoutSuccess = createAction(
   '[Auth Links Component] Logout Success',
-  props<{ user: User }>()
+  // props<{ user: User }>()
 );
 
 export const  logoutFailure = createAction(
   '[Auth]  Logout  Failure',
   props<{ error: any }>()
 );
-
-export const browserReload = createAction(
-  '[Auth Component] Browser Reload',
-  props<{ user: User }>()
-);
-
+/** Get Current User */
 export const getUser = createAction(
   '[Auth Component] Get User',
 );

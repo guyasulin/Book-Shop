@@ -1,0 +1,14 @@
+.header {
+    .mat-toolbar {
+      background: rgb(0 0 0 / 76%);
+      color: white;
+
+      .title {
+        cursor: pointer;
+      }
+    }
+    .spacer {
+      flex: 1 1 auto;
+    }
+  }
+  

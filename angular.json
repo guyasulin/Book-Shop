@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +125,11 @@
           }
         }
       }
-    }},
-  "defaultProject": "Book-Shop-front"
+    }
+  },
+  "defaultProject": "Book-Shop-front",
+  "cli": {
+    "analytics": "dc131853-d69f-46f3-bb36-d075f7e37b64",
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

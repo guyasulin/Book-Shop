@@ -1,0 +1,36 @@
+<div class="books-shelf" >
+    <h4>Books</h4>
+
+    <div class="card-list">
+        <mat-card class="card" *ngFor="let book of books$ |async"  >
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="header-image"></div> -->
+            <!-- <mat-card-title>{{ user.firstName }}</mat-card-title>
+          <mat-card-subtitle>{{ user.lastName }}</mat-card-subtitle> -->
+          </mat-card-header>
+          <img mat-card-image src="{{ book.cover }}" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <div class="card-body">
+              <p class="card-title">{{book.book}}</p>
+              <p class="card-text">{{book.price  | currency:'ILS':'symbol'}}</p>
+              <p class="card-text"> {{book.publisher}}</p>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-info" [routerLink]="['/shopping/book-view', book.id]"
+                title="View book Details"> View</button>
+
+                <button type="button"  (click)="buyBook(book.id)">Buy Book</button>
+                <!-- [product]="book" [text]="'Cart'" -->
+              <!-- <app-cart-button-widget [book]="book" [text]="'B'"></app-cart-button-widget> -->
+
+              <!-- <app-user [book]="book" [text]="'Bsss'"></app-user> -->
+
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      
+</div>
+

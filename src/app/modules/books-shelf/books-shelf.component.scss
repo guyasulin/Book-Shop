@@ -1,0 +1,25 @@
+.books-shelf {
+    .card-list {
+      display: flex;
+      flex-wrap: wrap;
+  
+      .card {
+        max-width: 200px;
+        margin: 40px auto 10px;
+        box-shadow: none;
+        cursor: pointer;
+        
+        .mat-card-image {
+          height: 65%;
+          display: flex;
+        }
+      }
+  
+      .header-image {
+        // background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+      }
+    }
+  
+  }
+  

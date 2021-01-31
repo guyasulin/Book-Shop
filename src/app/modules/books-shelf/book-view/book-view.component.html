@@ -1,0 +1,38 @@
+<div class="book-view">
+	<div class="col-8 mt-4" *ngIf="book$ | async as book">
+		<h4>book Detail</h4>
+		<div class="row mt-4">
+			<div class="col-md-5 col-lg-7">
+				<img class="card-img-top" src="{{book.cover}}" alt="Card image cap">
+				<div class=" mt-4">
+					<div>
+						<p>Price: ${{book.price}}</p>
+					</div>
+					<div>
+						<p>
+							In Stock: {{book.author}}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-7 col-lg-5">
+				<div class="card-body">
+					<h5 class="card-title">{{book.book}}</h5>
+					<p class="card-text">{{book.publisher}}
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="btn-group" role="group" aria-label="Basic example">
+						<!-- <app-cart-button-widget [book]="book" [text]="'Shopping Cart'"></app-cart-button-widget> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mt-4">
+			<button class="btn btn-primary" [routerLink]="['/shopping/books-shelf']" routerLinkActive="router-link-active"><i
+				   class="fas fa-arrow-left"></i>
+				Back To Shopping</button>
+		</div>
+	</div>
+
+</div>

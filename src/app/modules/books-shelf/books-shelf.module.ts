@@ -11,10 +11,10 @@ import { BookListComponent } from './book-list/book-list.component';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import * as fromBook from './state/book.reducer'
-import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
+import { AngularMaterialModule } from '../../../app/angular-material/angular-material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { UserModule } from 'src/app/modules/user/user.module';
+import { SharedModule } from '../../shared/shared.module';
+import { UserModule } from '../../modules/user/user.module';
 
 @NgModule({
 	declarations: [

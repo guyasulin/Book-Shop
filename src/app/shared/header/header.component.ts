@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { User } from 'src/app/modules/auth/resources/auth';
-import { AppState } from 'src/app/store';
-import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
+import { User } from '../../../app/modules/auth/resources/auth';
+import { AppState } from '../../store';
+import * as fromAuthSelectors from '../../store/selectors/auth.selectors';
 
 @Component({
 	selector: 'app-header',

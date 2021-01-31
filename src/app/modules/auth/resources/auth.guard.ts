@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { AppState } from 'src/app/store';
-import  * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
+import { AppState } from '../../../store';
+import  * as fromAuthSelectors from '../../../store/selectors/auth.selectors';
 
 
 @Injectable({

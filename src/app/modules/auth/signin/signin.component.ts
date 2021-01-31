@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store';
+import { AppState } from '../../../store';
 import { User } from '../resources/auth';
-import * as fromAuthActions from 'src/app/store/actions/auth.actions';
+import * as fromAuthActions from '../../../store/actions/auth.actions';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store';
-import * as fromAuthActions from 'src/app/store/actions/auth.actions';
+import { AppState } from '../../../store';
+import * as fromAuthActions from '../../../store/actions/auth.actions';
 
 @Component({
   selector: 'app-signup',

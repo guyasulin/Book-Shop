@@ -1,6 +1,5 @@
-import { currentUser } from './../../../../../Book-Shop/src/middlewares/current-user';
 import { Action, createReducer, on } from '@ngrx/store';
-import { User } from 'src/app/modules/auth/resources/auth';
+import { User } from '../../modules/auth/resources/auth';
 import * as  AuthActions from'../actions/auth.actions'
 
 export const authFeatureKey = 'auth';

@@ -1,5 +1,5 @@
 import { BookApiService } from './resources/book-api.service';
-import { AppState } from 'src/app/store';
+import { AppState } from '../../store';
 import { Book } from './resources/book';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';

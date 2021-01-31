@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as fromBookActions from '../state/book.actions';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store';
+import { AppState } from '../../../store';
 import { Subscription } from 'rxjs';
 
 @Component({

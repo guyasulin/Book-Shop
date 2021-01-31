@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store';
+import { AppState } from '../../../store';
 import * as fromBookActions from '../state/book.actions';
 
 @Component({

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AppState } from 'src/app/store';
+import { AppState } from '../../../store';
 import { User } from '../resources/auth';
-import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
+import * as fromAuthSelectors from '../../../store/selectors/auth.selectors';
 import * as fromAuthAction from '../../../store/actions/auth.actions';
 
 @Component({

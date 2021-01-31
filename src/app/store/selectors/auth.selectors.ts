@@ -1,4 +1,4 @@
-import { User } from 'src/app/modules/auth/resources/auth';
+import { User } from '../../modules/auth/resources/auth';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromAuth from '../reducers/auth.reducer';
 

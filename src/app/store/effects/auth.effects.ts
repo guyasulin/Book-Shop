@@ -38,7 +38,7 @@ export class AuthEffects {
       ofType(AuthActions.logout),
       concatMap(() =>
         this.authService.signout().pipe(
-          map((user) => AuthActions.logoutSuccess()),
+          map((user) => AuthActions.logoutSuccess({user})),
           catchError((error) => of(AuthActions.logoutFailure({ error })))
         )
       )

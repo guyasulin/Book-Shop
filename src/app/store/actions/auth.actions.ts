@@ -38,7 +38,7 @@ export const logout = createAction(
 
 export const logoutSuccess = createAction(
   '[Auth Links Component] Logout Success',
-  // props<{ user: User }>()
+  props<{ user: User }>()
 );
 
 export const  logoutFailure = createAction(

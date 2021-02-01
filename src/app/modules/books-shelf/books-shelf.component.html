@@ -4,7 +4,7 @@
     <mat-card class="card" *ngFor="let book of books$ |async"  >
       <mat-card-content>
         <div class="image-card">
-          <img mat-card-image src="{{ book.cover }}" alt="Photo of a Shiba Inu">
+          <img mat-card-image src="{{ book.cover }}" alt="Photo of a {{book.book}}">
         </div>
             <div class="card-body">
               <p class="card-title">{{book.book}}</p>

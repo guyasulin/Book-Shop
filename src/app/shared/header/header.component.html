@@ -6,9 +6,9 @@
       <div class="nav-item">
         <button mat-button class="nav-link" [routerLink]="['/shopping/book-shelf']" >shopping book</button>
       </div>
-      <div *ngIf="user.admin">
+      <div *ngIf="user?.admin">
         <button mat-icon-button [matMenuTriggerFor]="menu" class="dropdown">
-          {{ user.email}}
+          {{ user?.email}}
           <mat-icon>arrow_drop_down </mat-icon>
         </button>
         <mat-menu #menu="matMenu">
@@ -18,7 +18,7 @@
         </mat-menu>
       </div>
       <span class="spacer"></span>
-      <div class="navbar-nav" *ngIf="user.id">
+      <div class="navbar-nav" *ngIf="user?.id">
         <button mat-raised-button class="btn-user" >
           <div routerLink="user/user-details">Purchases</div>
         </button>

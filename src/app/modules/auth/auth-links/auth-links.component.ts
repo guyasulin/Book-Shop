@@ -21,6 +21,8 @@ export class AuthLinksComponent implements OnInit, OnDestroy {
 		this.store.dispatch(fromAuthAction.getUser());
 		this.sub = this.store.pipe(select(fromAuthSelectors.selectUserData)).subscribe((res) => {
 			this.user = res;
+			console.log(res);
+			
 		});
 	}
 

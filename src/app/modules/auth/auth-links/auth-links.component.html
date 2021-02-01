@@ -1,17 +1,17 @@
 <div class="auth-links">
-  <div *ngIf="user.admin" class="user-link auth-admin-link" routerLink='/admin/book-list'>
+  <div *ngIf="user?.admin === true" class="user-link auth-admin-link" routerLink='/admin/book-list'>
     <mat-icon class="icon">admin_panel_settings</mat-icon> Admin
   </div>
 
-  <div *ngIf="!user.admin && user.id" class="user-link" routerLink='/shopping/book-shelf'>
+  <div *ngIf="!user?.admin && user?.id" class="user-link" routerLink='/shopping/book-shelf'>
     <mat-icon class="icon">person_pin</mat-icon> {{ user.email }}
   </div>
-  <div *ngIf="!user.id" class="user-link login" routerLink='/auth/signin' routerLinkActive="active">
+  <div *ngIf="!user?.id" class="user-link login" routerLink='/auth/signin' routerLinkActive="active">
     <mat-icon class="icon">login</mat-icon>Login
   </div>
-  <div *ngIf="!user.id" routerLink='/auth/signup' class="user-link user-link-signup" routerLinkActive="active"> Register
+  <div *ngIf="!user?.id" routerLink='/auth/signup' class="user-link user-link-signup" routerLinkActive="active"> Register
   </div>
-  <div *ngIf="user.id" class="user-link auth-logout-link" (click)="logout()">
+  <div *ngIf="user?.id" class="user-link auth-logout-link" (click)="logout()">
     <mat-icon class="icon">exit_to_app</mat-icon>
     Logout
   </div>
